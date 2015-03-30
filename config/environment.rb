@@ -3,10 +3,10 @@
 #      http://stackoverflow.com/questions/7243486/why-do-you-need-require-bundler-setup
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 
-ENV['RACK_ENV'] ||= 'development'
+# ENV['RACK_ENV'] ||= 'development'
 
-require 'dotenv'
-Dotenv.load
+# require 'dotenv'
+# Dotenv.load
 
 require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 
