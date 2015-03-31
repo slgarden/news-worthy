@@ -3,6 +3,11 @@
 #      http://stackoverflow.com/questions/7243486/why-do-you-need-require-bundler-setup
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 
+# ENV['RACK_ENV'] ||= 'development'
+
+# require 'dotenv'
+# Dotenv.load
+
 require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 
 # Require gems we care about
@@ -19,6 +24,10 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 
 require 'erb'
+
+require 'csv'
+require 'httparty'
+
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
