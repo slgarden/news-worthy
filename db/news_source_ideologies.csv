@@ -1,30 +1,30 @@
-news_source,liberal_score,source_keyword
-ABC News,52,abc
-Al Jazeera America,28,aljazeera
-BBC,69,bbc
-Bloomberg,18,bloomberg
-Breitbart,0,breitbart
-BuzzFeed,6,buzzfeed
-CBS News,51,cbs
-CNN,56,cnn
-Daily Kos,10,dailykos
-Drudge Report,1,drudgereport
-Economist,30,economist
-Fox News,6,fox
-Guardian,21,guardian
-Huffington Post,38,huffington
-MSNBC,52,msnbc
-Mother Jones,25,motherjones
-NBC News,56,nbc
-NPR,72,npr
-New York Times,62,nytimes
-New Yorker,32,newyorker
-PBS,71,pbs
-Politico,21,politico
-Slate,14,slate
-TheBlaze,1,blaze
-ThinkProgress,10,thinkprogress
-USA TODAY,29,usatoday
-Wall Street Journal,35,wsj
-Washington Post,48,washingtonpost
-Yahoo News,17,yahoo
+news_source,liberal_score,keyword
+ABC News,52,ABC
+Al Jazeera America,28,Al Jazeera
+BBC,69,BBC
+Bloomberg,18,Bloomberg
+Breitbart,0,Breitbart
+BuzzFeed,6,BuzzFeed
+CBS News,51,CBS
+CNN,56,CNN
+Daily Kos,10,Daily Kos
+Drudge Report,1,Drudge Report
+Economist,30,Economist
+Fox News,6,Fox
+Guardian,21,Guardian
+Huffington Post,38,Huffington
+MSNBC,52,MSN
+Mother Jones,25,Mother Jones
+NBC News,56,NBC
+NPR,72,NPR
+New York Times,62,New York Times
+New Yorker,32,New Yorker
+PBS,71,PBS
+Politico,21,Politico
+Slate,14,Slate
+TheBlaze,1,Blaze
+ThinkProgress,10,Think Progress
+USA TODAY,29,USA Today
+Wall Street Journal,35,Wall Street Journal
+Washington Post,48,Washington Post
+Yahoo News,17,Yahoo

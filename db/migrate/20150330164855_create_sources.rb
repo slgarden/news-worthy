@@ -3,7 +3,7 @@ class CreateSources < ActiveRecord::Migration
     create_table :sources do |t|
       t.string  :news_source
       t.integer :liberal_score
-      t.string  :source_keyword
+      t.string  :keyword
 
       t.timestamps
     end
