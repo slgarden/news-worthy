@@ -5,9 +5,11 @@ get '/' do
 end
 
 post '/articles' do
-  # search_response = # request call to api here
+  search_response = bing(params[:query], params[:category])
+  filtered = sort_articles(search_response["results"])
+
   content_type :json
-  search_response.to_json
+  filtered.to_json
 end
 
 
