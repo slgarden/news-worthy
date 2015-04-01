@@ -1,4 +1,3 @@
-enable :sessions
 
 get '/' do
   erb :index

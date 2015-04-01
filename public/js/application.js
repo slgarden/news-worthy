@@ -16,41 +16,29 @@ $(document).ready(function() {
         category: category
       }
     }).done(function(data) {
+      $('.search_form')[0].reset();
       $.each(data, function(index, object) {
-
-        $('.wrapper').append('<div id="article_' + index + '">' + data[index].Url + '</div>')
+        var article = data[index];
+        $('.articles').append(
+          buildArticle(article.Title, article.Source, article.Description, article.Url, index));
       })
     });
 
-    // GetBing(query);
   })
 
-  // $('.next').on('click', function(event) {
-  //   event.preventDefault();
-  //   counter += 15;
-  //   GetBing(query);
-  // })
+  function buildArticle(articleTitle, articleSource, articleDescription, articleUrl, index) {
 
+    var articleTemplate = $.trim($('.article_template').html());
+    var $article = $(articleTemplate);
 
-  // function GetBing(query) {
-  //   // Build up the URL for the request
-  //   var requestStr = "https://api.datamarket.azure.com/Bing/Search/v1/News?$format=json&Query=%27" + query + "%27&$skip=" + counter;
-  //   var encodedKey = 'Om52N3dXOE85bjQxWVRidWI4aWhoZGNVUE9nQS8wRk9HTklKcGUzQU5nVjQ='
+    $article.find('.title').text(articleTitle);
+    $article.find('.source').text(articleSource);
+    $article.find('.short_description').text(articleDescription);
+    $article.find('.url a').attr("href", articleUrl).text("Link to Article");
+    $article.addClass("id_" + index)
 
-  //   $.ajax({
-  //     type: 'POST',
-  //     url: '/articles',
-  //     data: {query: query}
-  //   }).done( function (data) {
-  //     var results = data.d.results
+    return $article;
 
-  //     $.each(results, function(index, object) {
-  //       $('.wrapper').append('<div id="article_' + index + '">' + results[index].Url + '</div>')
-  //     })
-
-  //   });
-  // }
-
-
+  }
 
 });

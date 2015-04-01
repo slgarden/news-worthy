@@ -37,8 +37,6 @@ helpers do
 
     end
     sorted = filtered.sort_by { |hash| hash["liberal_score"] }.reverse
-    p sorted
-    return sorted
   end
 
 end
