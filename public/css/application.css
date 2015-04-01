@@ -1,5 +1,5 @@
 body {
-  background-color: #FDF5E6;
+  background-color: #FFFFFF;
   color: #000144;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: smaller;
@@ -7,23 +7,51 @@ body {
   padding: 0;
 }
 
+header {
+  text-align: center;
+  width: 100%;
+  background-color: #847782;
+  padding: 10px;
+  height: 300px;
+}
+
 h1 {
-  font-size: 130%;
-  color: #AA0000;
+  color: #0D0D0C;
+  font-size: 80px;
 }
 
 label {
   display: block;
   margin-top: 12px;
-  margin-bottom: 4px;
+  margin-bottom: 12px;
+  font-size: 20px;
 }
 
-.wrapper {
+a {
+  text-decoration: none;
+}
+
+.container {
   background-color: #FFFFFF;
   border: 1px solid #808080;
   font-size: 95%;
   margin: 11px auto;
   padding: 12px;
   text-align: left;
-  width: 700px;
+  width: 80%;
 }
+
+.article_template {
+  display: none;
+}
+
+.article {
+  border: 1px solid red;
+  min-height: 350px;
+  padding: 10px;
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+}
+
+
