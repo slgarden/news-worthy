@@ -12,11 +12,14 @@ helpers do
     # grab results from HTTParty.post search with same query and category
       # counter set to 0, increment by 15
 
-    articles = []
+    # articles = []
 
-    until article_count >= 0
-
-    end
+    # until articles.length >= 20
+    #   HTTParty.post(
+    #     "https://api.datamarket.azure.com/Bing/Search/v1/News?$format=json&Query=%27#{query}%27&NewsCategory=%27rt_#{category}%27&$skip=#{count}",
+    #     :headers => {'Authorization' => 'Basic Om52N3dXOE85bjQxWVRidWI4aWhoZGNVUE9nQS8wRk9HTklKcGUzQU5nVjQ=' }
+    #     )
+    # end
 
 
     first_fifteen = HTTParty.post("https://api.datamarket.azure.com/Bing/Search/v1/News?$format=json&Query=%27#{query}%27&NewsCategory=%27rt_#{category}%27&$skip=0",
