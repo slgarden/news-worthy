@@ -1,10 +1,7 @@
 $(document).ready(function() {
-  // var query;
-  // var counter = 0;
 
   $('.search_form').on('submit', function(event) {
     event.preventDefault();
-    // counter = 0;
     query = this.query.value
     category = this.category.value
 

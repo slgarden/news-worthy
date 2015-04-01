@@ -6,6 +6,19 @@ helpers do
 
   def bing(query, category)
     query = query.gsub(" ", "+")
+
+    # set article count to 0
+    # begin until loop: until article count >= 20
+    # grab results from HTTParty.post search with same query and category
+      # counter set to 0, increment by 15
+
+    articles = []
+
+    until article_count >= 0
+
+    end
+
+
     first_fifteen = HTTParty.post("https://api.datamarket.azure.com/Bing/Search/v1/News?$format=json&Query=%27#{query}%27&NewsCategory=%27rt_#{category}%27&$skip=0",
     :headers => {'Authorization' => 'Basic Om52N3dXOE85bjQxWVRidWI4aWhoZGNVUE9nQS8wRk9HTklKcGUzQU5nVjQ=' } )
 
