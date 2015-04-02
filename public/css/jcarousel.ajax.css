@@ -33,8 +33,9 @@
 .jcarousel li {
     float: left;
     width: 425px;
-    height: 400px;
+    height: 358px;
     margin-right: 1px;
+    margin-left: 1px;
     padding: 20px;
 }
 .jcarousel h4 {

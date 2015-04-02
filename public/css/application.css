@@ -1,3 +1,23 @@
 .article_template {
   display: none;
 }
+.meter {
+  width:72%;
+  height: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display:block;
+  margin: 10px auto;
+}
+.fill {
+  height:100%;
+  width:0%;
+  background-color: red;
+}
+.rating {
+  display: none;
+}
+
+.current {
+  border: 1px solid red;
+}
