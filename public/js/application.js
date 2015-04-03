@@ -13,10 +13,11 @@ $(document).ready(function() {
           target: '-=1'
       })
       .on('click', function(event) {
-        var $currentArticle = $('.jcarousel').jcarousel('target')
-        $currentArticle.next().removeClass('current')
-        $currentArticle.addClass('current')
-        var rating = $currentArticle.find('.rating').text();
+        var $currentArticle = $('.jcarousel').find('.current')
+        var $targetArticle = $('.jcarousel').jcarousel('target')
+        $currentArticle.removeClass('current')
+        $targetArticle.addClass('current')
+        var rating = $targetArticle.find('.rating').text();
         $('.fill').css('width', rating + '%');
       });
 
@@ -31,10 +32,11 @@ $(document).ready(function() {
           target: '+=1'
       })
       .on('click', function(event) {
-        var $currentArticle = $('.jcarousel').jcarousel('target')
-        $currentArticle.prev().removeClass('current')
-        $currentArticle.addClass('current')
-        var rating = $currentArticle.find('.rating').text();
+        var $currentArticle = $('.jcarousel').find('.current')
+        var $targetArticle = $('.jcarousel').jcarousel('target')
+        $currentArticle.removeClass('current')
+        $targetArticle.addClass('current')
+        var rating = $targetArticle.find('.rating').text();
         $('.fill').css('width', rating + '%');
       });
 
@@ -55,16 +57,16 @@ $(document).ready(function() {
       $('.search_form')[0].reset();
       $.each(data, function(index, object) {
         var article = data[index];
-
+        var articleDate = new Date(article.Date);
 
         $ul.append(
-          buildArticle(article.Title, article.Source, article.Date, article.Description, article.Url, index, article.ideological_score));
+          buildArticle(article.Title, article.Source, articleDate, article.Description, article.Url, index, article.ideological_score));
       })
       jcarousel.html($ul);
 
       jcarousel.jcarousel('reload')
 
-      var $currentArticle = $('.jcarousel').jcarousel('target')
+      var $currentArticle = $('.jcarousel').jcarousel('first')
       $currentArticle.addClass('current')
       var rating = $currentArticle.find('.rating').text();
       $('.fill').css('width', rating + '%');

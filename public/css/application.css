@@ -91,7 +91,7 @@ button .url a {
 }
 
 .current {
-  box-shadow: inset 0 0 10px #000000;
+  box-shadow: inset 0 0 15px #000000;
 }
 
 #bt_search {
