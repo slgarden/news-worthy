@@ -72,8 +72,7 @@ p.short_description {}
 
 .jcarousel .loading {
     text-align: center;
-    line-height: 90px;
-    background-color:
+    line-height: 3;
 }
 
 /** Carousel Controls **/
@@ -115,4 +114,7 @@ p.short_description {}
 .jcarousel-control-next.inactive {
     opacity: .5;
     cursor: default;
+}
+.loading p{
+    font-size: 20px;
 }
