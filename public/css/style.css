@@ -14,7 +14,7 @@ section {
   margin:0;
 }
 
-#section-section1 {
+/*#section-section1 {
   background:#2c3e50;
 }
 #section-section2 {
@@ -25,9 +25,9 @@ section {
 }
 #section-section4 {
   background:#c0392b;
-}
+}*/
 
-.horizon-prev, .horizon-next {
+/*.horizon-prev, .horizon-next {
 position: fixed;
 top: 50%;
 margin-top: -24px;
@@ -38,4 +38,4 @@ left: 20px;
 }
 .horizon-next {
 right: 20px;
-}
+}*/

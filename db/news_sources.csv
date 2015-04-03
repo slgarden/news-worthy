@@ -1,0 +1,37 @@
+news_source,ideological_score,keyword
+NPR,5.31,NPR
+CNN,12.5,CNN
+Daily Show,13.75,Daily Show
+PBS,16.25,PBS
+New York Times,17.5,New York Times
+BBC,18.44,BBC
+MSNBC,19.06,MSNBC
+Colbert Report,19.69,Colbert Report
+NBC News,22.81,NBC
+Huffington Post,23.44,Huffington Post
+Washington Post,29.38,Washington Post
+Al Jazeera America,30,Al Jazeera
+CBS News,30,CBS
+New Yorker,30.63,New Yorker
+Mother Jones,30.63,Mother Jones
+ABC News,31.25,ABC
+Guardian,31.56,Guardian
+Slate,31.56,Slate
+BuzzFeed,31.88,BuzzFeed
+Daily Kos,32.19,Daily Kos
+Politico,32.81,Politico
+Ed Schultz Show,32.81,Ed Schultz
+Google News,33.13,Google
+ThinkProgress,33.44,Think Progress
+Economist,33.75,Economist
+USA TODAY,36.25,USA Today
+Bloomberg,37.81,Bloomberg
+Yahoo News,38.13,Yahoo
+Wall Street Journal,40.94,Wall Street Journal
+Breitbart,48.13,Breitbart
+Drudge Report,52.19,Drudge Report
+TheBlaze,57.81,The Blaze
+Glenn Beck Program,62.19,Glenn Beck
+Rush Limbaugh Show,69.06,Rush Limbaugh
+Sean Hannity Show,70.94,Sean Hannity
+Fox News,95.31,FOX

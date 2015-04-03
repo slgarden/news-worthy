@@ -7,34 +7,16 @@ helpers do
   def bing(query, category)
     query = query.gsub(" ", "+")
 
-    # set article count to 0
-    # begin until loop: until article count >= 20
-    # grab results from HTTParty.post search with same query and category
-      # counter set to 0, increment by 15
-
-    # articles = []
-
-    # until articles.length >= 20
-    #   HTTParty.post(
-    #     "https://api.datamarket.azure.com/Bing/Search/v1/News?$format=json&Query=%27#{query}%27&NewsCategory=%27rt_#{category}%27&$skip=#{count}",
-    #     :headers => {'Authorization' => 'Basic Om52N3dXOE85bjQxWVRidWI4aWhoZGNVUE9nQS8wRk9HTklKcGUzQU5nVjQ=' }
-    #     )
-    # end
+    header = {:headers => {'Authorization' => 'Basic Om52N3dXOE85bjQxWVRidWI4aWhoZGNVUE9nQS8wRk9HTklKcGUzQU5nVjQ=' }}
+    url = "https://api.datamarket.azure.com/Bing/Search/v1/News?$format=json&Query=%27#{query}%27&NewsCategory=%27rt_#{category}%27"
 
 
-    first_fifteen = HTTParty.post("https://api.datamarket.azure.com/Bing/Search/v1/News?$format=json&Query=%27#{query}%27&NewsCategory=%27rt_#{category}%27&$skip=0",
-    :headers => {'Authorization' => 'Basic Om52N3dXOE85bjQxWVRidWI4aWhoZGNVUE9nQS8wRk9HTklKcGUzQU5nVjQ=' } )
+    first_fifteen = HTTParty.post(url + "&$skip=0", header)["d"]
+    second_fifteen = HTTParty.post(url + "&$skip=15", header)["d"]
+    third_fifteen = HTTParty.post(url + "&$skip=30", header)["d"]
+    fourth_fifteen = HTTParty.post(url + "&$skip=45", header)["d"]
 
-    second_fifteen = HTTParty.post("https://api.datamarket.azure.com/Bing/Search/v1/News?$format=json&Query=%27#{query}%27&NewsCategory=%27rt_#{category}%27&$skip=15",
-    :headers => {'Authorization' => 'Basic Om52N3dXOE85bjQxWVRidWI4aWhoZGNVUE9nQS8wRk9HTklKcGUzQU5nVjQ=' } )
-
-    third_fifteen = HTTParty.post("https://api.datamarket.azure.com/Bing/Search/v1/News?$format=json&Query=%27#{query}%27&NewsCategory=%27rt_#{category}%27&$skip=30",
-    :headers => {'Authorization' => 'Basic Om52N3dXOE85bjQxWVRidWI4aWhoZGNVUE9nQS8wRk9HTklKcGUzQU5nVjQ=' } )
-
-    fourth_fifteen = HTTParty.post("https://api.datamarket.azure.com/Bing/Search/v1/News?$format=json&Query=%27#{query}%27&NewsCategory=%27rt_#{category}%27&$skip=45",
-    :headers => {'Authorization' => 'Basic Om52N3dXOE85bjQxWVRidWI4aWhoZGNVUE9nQS8wRk9HTklKcGUzQU5nVjQ=' } )
-
-    responses = first_fifteen["d"].update(second_fifteen["d"]) { |key, value1, value2| value1 + value2 }.update(third_fifteen["d"]) { |key, value1, value2| value1 + value2 }.update(fourth_fifteen["d"]) { |key, value1, value2| value1 + value2 }
+    responses = first_fifteen.update(second_fifteen) { |key, value1, value2| value1 + value2 }.update(third_fifteen) { |key, value1, value2| value1 + value2 }.update(fourth_fifteen) { |key, value1, value2| value1 + value2 }
   end
 
   def sort_articles(search_response)
@@ -46,13 +28,32 @@ helpers do
 
       sources.each do |source|
         if news_source.include?(source.keyword)
-          result_obj["liberal_score"] = source.liberal_score
+          result_obj["ideological_score"] = source.ideological_score
           filtered << result_obj
         end
       end
 
     end
-    sorted = filtered.sort_by { |hash| hash["liberal_score"] }.reverse
+
+    sorted = filtered.sort_by { |hash| hash["ideological_score"] }
+  end
+
+  def bing_image(query)
+    query = query.gsub(" ", "+")
+
+    header = {:headers => {'Authorization' => 'Basic Om52N3dXOE85bjQxWVRidWI4aWhoZGNVUE9nQS8wRk9HTklKcGUzQU5nVjQ=' }}
+    url = "https://api.datamarket.azure.com/Bing/Search/v1/Image?Query=%27#{query}%27&Adult=%27Strict%27"
+
+    image = HTTParty.post(url, header)
+  end
+
+  def bing_spelling(query)
+    query = query.gsub(" ", "+")
+
+    header = {:headers => {'Authorization' => 'Basic Om52N3dXOE85bjQxWVRidWI4aWhoZGNVUE9nQS8wRk9HTklKcGUzQU5nVjQ=' }}
+    url = "https://api.datamarket.azure.com/Bing/Search/v1/SpellingSuggestions?Query=%27#{query}%27&Adult=%27Strict%27"
+
+    spelling = HTTParty.post(url, header)
   end
 
 end

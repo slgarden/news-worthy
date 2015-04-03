@@ -5,10 +5,10 @@ end
 
 post '/articles' do
   search_response = bing(params[:query], params[:category])
-  filtered = sort_articles(search_response["results"])
+  articles = sort_articles(search_response["results"])
 
   content_type :json
-  filtered.to_json
+  articles.to_json
 end
 
 

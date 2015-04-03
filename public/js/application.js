@@ -11,6 +11,13 @@ $(document).ready(function() {
       })
       .jcarouselControl({
           target: '-=1'
+      })
+      .on('click', function(event) {
+        var $currentArticle = $('.jcarousel').jcarousel('target')
+        $currentArticle.next().removeClass('current')
+        $currentArticle.addClass('current')
+        var rating = $currentArticle.find('.rating').text();
+        $('.fill').css('width', rating + '%');
       });
 
   $('.jcarousel-control-next')
@@ -29,7 +36,6 @@ $(document).ready(function() {
         $currentArticle.addClass('current')
         var rating = $currentArticle.find('.rating').text();
         $('.fill').css('width', rating + '%');
-        // MAKE SURE YOU ADD THIS FOR THE OPPOSITE DIRECTION AS WELL
       });
 
   $('.search_form').on('submit', function(event) {
@@ -49,12 +55,13 @@ $(document).ready(function() {
       $('.search_form')[0].reset();
       $.each(data, function(index, object) {
         var article = data[index];
+
+
         $ul.append(
-          buildArticle(article.Title, article.Source, article.Description, article.Url, index, article.liberal_score));
+          buildArticle(article.Title, article.Source, article.Date, article.Description, article.Url, index, article.ideological_score));
       })
       jcarousel.html($ul);
 
-            // Reload carousel
       jcarousel.jcarousel('reload')
 
       var $currentArticle = $('.jcarousel').jcarousel('target')
@@ -65,17 +72,18 @@ $(document).ready(function() {
 
   })
 
-  function buildArticle(articleTitle, articleSource, articleDescription, articleUrl, index, liberal_score) {
+  function buildArticle(articleTitle, articleSource, articleDate, articleDescription, articleUrl, index, ideological_score) {
 
     var articleTemplate = $.trim($('.article_template').html());
     var $article = $(articleTemplate);
 
     $article.find('.title').text(articleTitle);
     $article.find('.source').text(articleSource);
+    $article.find('.date').text(articleDate)
     $article.find('.short_description').text(articleDescription);
     $article.find('.url a').attr("href", articleUrl).text("Link to Article");
-    $article.attr("id","section-"+index);
-    $article.find(".rating").text(liberal_score)
+    $article.attr("id","section-" + index);
+    $article.find(".rating").text(ideological_score)
 
     return $article;
   }
