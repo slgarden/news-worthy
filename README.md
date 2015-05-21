@@ -1,4 +1,4 @@
-
+![main-image](https://s3-us-west-1.amazonaws.com/githubimages/Screen+Shot+2015-05-20+at+5.34.01+PM.png)
 [NewsWorthy](http://news-worthy.herokuapp.com/) is a news search web application that retrieves articles about current events and presents links to those articles on a spectrum ordered by ideological perspective, from liberal to conservative. Most people get their news from sources that align with their own political and ideological interests, which unfortunately does not give them the full story on a given issue. This app widens users' perspectives by making them cognizant of the biases associated with their most-frequented news sources and allowing them to explore what other paradigms are saying about an event. 
 
 This was a solo project, built in four days midway through my programming course, Dev Bootcamp. 
