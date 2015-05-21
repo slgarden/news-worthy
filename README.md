@@ -29,7 +29,9 @@ Technologies/frameworks used include:
 * Articles presented along spectrum from Liberal <--> Conservative
 * Right and left arrows allow user to scroll through articles
   * As user moves through each article, spectrum along the bottom changes according to the ideological score of that article's news source
-![articles-page](https://s3-us-west-1.amazonaws.com/githubimages/Screen+Shot+2015-05-20+at+10.10.27+PM.png)
+![articles-liberal-page](https://s3-us-west-1.amazonaws.com/githubimages/Screen+Shot+2015-05-20+at+10.10.27+PM.png)
+![articles-conservative-page](https://s3-us-west-1.amazonaws.com/githubimages/Screen+Shot+2015-05-20+at+10.10.53+PM.png)
 
 ##### 3) Single Article Page
 * When a user clicks the "Link to Article" button on a given article, a new tab opens in their browser linking to the original article
+![article-link-page](https://s3-us-west-1.amazonaws.com/githubimages/Screen+Shot+2015-05-20+at+10.12.02+PM.png)
