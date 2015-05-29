@@ -1,7 +1,7 @@
 require 'pathname'
 require 'csv'
 
-file = Pathname.new(File.expand_path('../../', __FILE__)).join('db','news_source_ideologies.csv')
+file = Pathname.new(File.expand_path('../../', __FILE__)).join('db','news_sources.csv')
 
 def parse_csv(csv_file)
   csv_data = CSV.read(csv_file)

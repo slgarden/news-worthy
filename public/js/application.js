@@ -1,10 +1,47 @@
 $(document).ready(function() {
-  // var query;
-  // var counter = 0;
+
+  var jcarousel = $('.jcarousel').jcarousel();
+
+  $('.jcarousel-control-prev')
+      .on('jcarouselcontrol:active', function() {
+          $(this).removeClass('inactive');
+      })
+      .on('jcarouselcontrol:inactive', function() {
+          $(this).addClass('inactive');
+      })
+      .jcarouselControl({
+          target: '-=1'
+      })
+      .on('click', function(event) {
+        var $currentArticle = $('.jcarousel').find('.current')
+        var $targetArticle = $('.jcarousel').jcarousel('target')
+        $currentArticle.removeClass('current')
+        $targetArticle.addClass('current')
+        var rating = $targetArticle.find('.rating').text();
+        $('.fill').css('width', rating + '%');
+      });
+
+  $('.jcarousel-control-next')
+      .on('jcarouselcontrol:active', function() {
+          $(this).removeClass('inactive');
+      })
+      .on('jcarouselcontrol:inactive', function() {
+          $(this).addClass('inactive');
+      })
+      .jcarouselControl({
+          target: '+=1'
+      })
+      .on('click', function(event) {
+        var $currentArticle = $('.jcarousel').find('.current')
+        var $targetArticle = $('.jcarousel').jcarousel('target')
+        $currentArticle.removeClass('current')
+        $targetArticle.addClass('current')
+        var rating = $targetArticle.find('.rating').text();
+        $('.fill').css('width', rating + '%');
+      });
 
   $('.search_form').on('submit', function(event) {
     event.preventDefault();
-    // counter = 0;
     query = this.query.value
     category = this.category.value
 
@@ -16,41 +53,42 @@ $(document).ready(function() {
         category: category
       }
     }).done(function(data) {
+      var $ul = $("<ul>")
+      $('.search_form')[0].reset();
       $.each(data, function(index, object) {
+        var article = data[index];
+        var articleDate = new Date(article.Date);
 
-        $('.wrapper').append('<div id="article_' + index + '">' + data[index].Url + '</div>')
+        $ul.append(
+          buildArticle(article.Title, article.Source, articleDate, article.Description, article.Url, index, article.ideological_score));
       })
+      jcarousel.html($ul);
+
+      jcarousel.jcarousel('reload')
+
+      var $currentArticle = $('.jcarousel').jcarousel('first')
+      $currentArticle.addClass('current')
+      var rating = $currentArticle.find('.rating').text();
+      $('.fill').css('width', rating + '%');
     });
 
-    // GetBing(query);
   })
 
-  // $('.next').on('click', function(event) {
-  //   event.preventDefault();
-  //   counter += 15;
-  //   GetBing(query);
-  // })
+  function buildArticle(articleTitle, articleSource, articleDate, articleDescription, articleUrl, index, ideological_score) {
 
+    var articleTemplate = $.trim($('.article_template').html());
+    var $article = $(articleTemplate);
 
-  // function GetBing(query) {
-  //   // Build up the URL for the request
-  //   var requestStr = "https://api.datamarket.azure.com/Bing/Search/v1/News?$format=json&Query=%27" + query + "%27&$skip=" + counter;
-  //   var encodedKey = 'Om52N3dXOE85bjQxWVRidWI4aWhoZGNVUE9nQS8wRk9HTklKcGUzQU5nVjQ='
+    $article.find('.title').text(articleTitle);
+    $article.find('.source').text(articleSource);
+    $article.find('.date').text(articleDate)
+    $article.find('.short_description').text(articleDescription);
+    $article.find('.url a').attr("href", articleUrl).text("Link to Article");
+    $article.attr("id","section-" + index);
+    $article.find(".rating").text(ideological_score)
 
-  //   $.ajax({
-  //     type: 'POST',
-  //     url: '/articles',
-  //     data: {query: query}
-  //   }).done( function (data) {
-  //     var results = data.d.results
-
-  //     $.each(results, function(index, object) {
-  //       $('.wrapper').append('<div id="article_' + index + '">' + results[index].Url + '</div>')
-  //     })
-
-  //   });
-  // }
-
-
+    return $article;
+  }
 
 });
+
